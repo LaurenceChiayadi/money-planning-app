@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:money_planner/assets/theme/theme.dart';
 import 'package:money_planner/screens/home_page.dart';
 import 'package:money_planner/screens/statistics_page.dart';
+import 'package:money_planner/providers/accounts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,14 +44,17 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Money Planning App',
-      theme: CustomTheme.theme,
-      darkTheme: CustomDarkModeTheme.theme,
-      themeMode: _themeMode,
-      home: Scaffold(
-        bottomNavigationBar: _buildBottomNavigationBar(),
-        body: _buildBody(),
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (ctx) => Accounts())],
+      child: MaterialApp(
+        title: 'Money Planning App',
+        theme: CustomTheme.theme,
+        darkTheme: CustomDarkModeTheme.theme,
+        themeMode: _themeMode,
+        home: Scaffold(
+          bottomNavigationBar: _buildBottomNavigationBar(),
+          body: _buildBody(),
+        ),
       ),
     );
   }

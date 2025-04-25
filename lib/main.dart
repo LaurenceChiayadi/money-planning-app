@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:money_planner/screens/onboarding_page.dart';
 import 'package:provider/provider.dart';
 
 import 'package:money_planner/assets/theme/theme.dart';
@@ -27,67 +28,22 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  List<Widget> _getWidgetOptions() {
-    return [
-      HomePage(toggleTheme: _toggleTheme, themeMode: _themeMode),
-      const StatisticsPage(),
-    ];
-  }
-
-  int _currentIndex = 0;
-
-  void _onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (ctx) => Accounts())],
       child: MaterialApp(
-        title: 'Money Planning App',
-        theme: CustomTheme.theme,
-        darkTheme: CustomDarkModeTheme.theme,
-        themeMode: _themeMode,
-        home: Scaffold(
-          bottomNavigationBar: _buildBottomNavigationBar(),
-          body: _buildBody(),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildBottomNavigationBar() {
-    return SizedBox(
-      height: 100,
-      child: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Dashboard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.leaderboard),
-            label: 'Statistic',
-          ),
-        ],
-        currentIndex: _currentIndex,
-        selectedItemColor: Theme.of(context).primaryColor,
-        onTap: _onTabTapped,
-      ),
-    );
-  }
-
-  Widget _buildBody() {
-    return SingleChildScrollView(
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: _getWidgetOptions().elementAt(_currentIndex),
-        ),
-      ),
+          title: 'Money Planning App',
+          darkTheme: CustomDarkModeTheme.theme,
+          themeMode: _themeMode,
+          initialRoute: '/onboard',
+          routes: {
+            '/': (context) =>
+                HomePage(toggleTheme: _toggleTheme, themeMode: _themeMode),
+            '/onboard': (context) => OnboardingPage(
+                  themeMode: _themeMode,
+                ),
+          }),
     );
   }
 }

@@ -4,22 +4,27 @@ class CustomTheme {
   static ThemeData get theme {
     return ThemeData(
       brightness: Brightness.light,
-      primaryColor: Colors.lightGreen,
-      // accentColor: Colors.lightGreenAccent,
-      // backgroundColor: Colors.white,
       scaffoldBackgroundColor: Colors.white,
+      primaryColor: Colors.black,
       appBarTheme: const AppBarTheme(
-        color: Colors.lightGreen,
-        iconTheme: IconThemeData(color: Colors.white),
+        color: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+        titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
       ),
       textTheme: const TextTheme(
+        bodyLarge: TextStyle(color: Colors.black, fontSize: 18),
         bodyMedium: TextStyle(color: Colors.black, fontSize: 16),
-        bodySmall: TextStyle(color: Colors.black54, fontSize: 14),
+        bodySmall: TextStyle(color: Colors.black87, fontSize: 14),
       ),
-      buttonTheme: const ButtonThemeData(
-        buttonColor: Colors.lightGreen,
-        textTheme: ButtonTextTheme.primary,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
       ),
+      iconTheme: const IconThemeData(color: Colors.black),
     );
   }
 }
@@ -28,22 +33,27 @@ class CustomDarkModeTheme {
   static ThemeData get theme {
     return ThemeData(
       brightness: Brightness.dark,
-      primaryColor: Colors.lightGreen,
-      // accentColor: Colors.lightBlueAccent,
-      // backgroundColor: Colors.black,
-      scaffoldBackgroundColor: const Color(0xFF2a3439),
+      scaffoldBackgroundColor: Colors.black,
+      primaryColor: Colors.white,
       appBarTheme: const AppBarTheme(
-        color: Colors.lightGreen,
+        color: Colors.black,
         iconTheme: IconThemeData(color: Colors.white),
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
       ),
       textTheme: const TextTheme(
+        bodyLarge: TextStyle(color: Colors.white, fontSize: 18),
         bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
         bodySmall: TextStyle(color: Colors.white70, fontSize: 14),
       ),
-      buttonTheme: const ButtonThemeData(
-        buttonColor: Colors.lightGreen,
-        textTheme: ButtonTextTheme.primary,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
       ),
+      iconTheme: const IconThemeData(color: Colors.white),
     );
   }
 }

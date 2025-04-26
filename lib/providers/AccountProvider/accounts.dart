@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:money_planner/providers/account.dart';
+import 'package:money_planner/providers/AccountProvider/account.dart';
 
 class Accounts with ChangeNotifier {
   final List<Account> _accounts = [

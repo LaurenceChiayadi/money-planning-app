@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:money_planner/components/global/Layout.dart';
 
 class OnboardingPage extends StatelessWidget {
-  final ThemeMode themeMode;
   final List<Map<String, dynamic>> onboardingData = [
     {
       'title': 'Welcome',
@@ -18,7 +17,7 @@ class OnboardingPage extends StatelessWidget {
     },
   ];
 
-  OnboardingPage({super.key, required this.themeMode});
+  OnboardingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,6 @@ class OnboardingPage extends StatelessWidget {
       itemBuilder: (context, index) {
         final page = onboardingData[index];
         return OnboardingScreen(
-          themeMode: themeMode,
           title: page['title'],
           subtitle: page['subtitle'],
           isLastPage: index == onboardingData.length - 1,
@@ -42,32 +40,30 @@ class OnboardingScreen extends StatelessWidget {
   final String title;
   final String subtitle;
   final bool isLastPage;
-  final ThemeMode themeMode;
 
   const OnboardingScreen({
     super.key,
     required this.title,
     required this.subtitle,
     required this.isLastPage,
-    required this.themeMode,
   });
 
   @override
   Widget build(BuildContext context) {
-    final isDark = themeMode == ThemeMode.dark;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(title,
-            style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: isDark ? Colors.white : Colors.black)),
+            style: const TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+            )),
         const SizedBox(height: 20),
         Text(subtitle,
             textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 18, color: isDark ? Colors.white : Colors.black)),
+            style: const TextStyle(
+              fontSize: 18,
+            )),
         const SizedBox(height: 40),
         if (isLastPage)
           ElevatedButton(

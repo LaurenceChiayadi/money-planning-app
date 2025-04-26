@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:money_planner/screens/onboarding_page.dart';
+import 'package:money_planner/providers/ThemeProvider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'package:money_planner/assets/theme/theme.dart';
 import 'package:money_planner/screens/home_page.dart';
-import 'package:money_planner/screens/statistics_page.dart';
-import 'package:money_planner/providers/accounts.dart';
+import 'package:money_planner/screens/onboarding_page.dart';
+import 'package:money_planner/providers/AccountProvider/accounts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,31 +19,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeMode _themeMode = ThemeMode.system;
-
-  void _toggleTheme() {
-    setState(() {
-      _themeMode =
-          _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (ctx) => Accounts())],
-      child: MaterialApp(
-          title: 'Money Planning App',
-          darkTheme: CustomDarkModeTheme.theme,
-          themeMode: _themeMode,
-          initialRoute: '/onboard',
-          routes: {
-            '/': (context) =>
-                HomePage(toggleTheme: _toggleTheme, themeMode: _themeMode),
-            '/onboard': (context) => OnboardingPage(
-                  themeMode: _themeMode,
-                ),
-          }),
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => ThemeProvider()),
+        ChangeNotifierProvider(create: (ctx) => Accounts()),
+      ],
+      child: Builder(
+        builder: (context) {
+          final themeMode = context.watch<ThemeProvider>().themeMode;
+          return MaterialApp(
+            title: 'Money Planning App',
+            theme: CustomTheme.theme,
+            darkTheme: CustomDarkModeTheme.theme,
+            themeMode: themeMode,
+            initialRoute: '/onboard',
+            routes: {
+              '/': (context) => const HomePage(),
+              '/onboard': (context) => OnboardingPage(),
+            },
+          );
+        },
+      ),
     );
   }
 }

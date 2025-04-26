@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:money_planner/components/global/Layout.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnboardingPage extends StatelessWidget {
-  final List<Map<String, dynamic>> onboardingData = [
-    {
-      'title': 'Welcome',
-      'subtitle': 'Manage your money like a pro.',
-    },
-    {
-      'title': 'Track Spending',
-      'subtitle': 'Stay in control with real-time insights.',
-    },
-    {
-      'title': 'Set Goals',
-      'subtitle': 'Plan and reach your financial dreams.',
-    },
-  ];
-
-  OnboardingPage({super.key});
+  const OnboardingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> onboardingData = [
+      {
+        'title': AppLocalizations.of(context)!.onboarding1Title,
+        'subtitle': AppLocalizations.of(context)!.onboarding1Description,
+      },
+      {
+        'title': AppLocalizations.of(context)!.onboarding2Title,
+        'subtitle': AppLocalizations.of(context)!.onboarding2Description,
+      },
+      {
+        'title': AppLocalizations.of(context)!.onboarding3Title,
+        'subtitle': AppLocalizations.of(context)!.onboarding3Description,
+      },
+    ];
+
     return Scaffold(
         body: PageView.builder(
       itemCount: onboardingData.length,
@@ -55,14 +56,14 @@ class OnboardingScreen extends StatelessWidget {
       children: [
         Text(title,
             style: const TextStyle(
-              fontSize: 32,
+              fontSize: 30,
               fontWeight: FontWeight.bold,
             )),
         const SizedBox(height: 20),
         Text(subtitle,
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 14,
             )),
         const SizedBox(height: 40),
         if (isLastPage)

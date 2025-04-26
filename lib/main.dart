@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:money_planner/providers/ThemeProvider/theme_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'package:money_planner/providers/ThemeProvider/theme_provider.dart';
+import 'package:money_planner/providers/AccountProvider/accounts.dart';
+
+import 'package:money_planner/l10n/l10n.dart';
 import 'package:money_planner/assets/theme/theme.dart';
 import 'package:money_planner/screens/home_page.dart';
 import 'package:money_planner/screens/onboarding_page.dart';
-import 'package:money_planner/providers/AccountProvider/accounts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +37,8 @@ class _MyAppState extends State<MyApp> {
             theme: CustomTheme.theme,
             darkTheme: CustomDarkModeTheme.theme,
             themeMode: themeMode,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             initialRoute: '/onboard',
             routes: {
               '/': (context) => const HomePage(),

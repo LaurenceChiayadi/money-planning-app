@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lottie/lottie.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingLayout extends StatefulWidget {
   final String title;
   final String subtitle;
+  final String lottieAnimation;
   final bool isLastPage;
 
-  const OnboardingScreen({
+  const OnboardingLayout({
     super.key,
     required this.title,
     required this.subtitle,
+    required this.lottieAnimation,
     required this.isLastPage,
   });
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<OnboardingLayout> createState() => _OnboardingLayoutState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen>
+class _OnboardingLayoutState extends State<OnboardingLayout>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
 
@@ -39,6 +42,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Lottie.asset(widget.lottieAnimation),
         Text(widget.title,
             style: const TextStyle(
               fontSize: 30,

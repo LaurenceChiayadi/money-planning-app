@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:money_planner/components/global/Layout.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:money_planner/providers/ThemeProvider/theme_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:money_planner/shared/layout/layout.dart';
+import 'package:money_planner/providers/AccountProvider/accounts_provider.dart';
 
-import 'package:money_planner/providers/AccountProvider/accounts.dart';
-
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   static const routeName = '/';
 
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final accounts = context.watch<Accounts>().accounts;
-    final themeMode = context.watch<ThemeProvider>().themeMode;
-    final toggleTheme = context.read<ThemeProvider>().toggleTheme;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final accounts = ref.watch(accountsProvider);
+    final themeMode = ref.watch(themeProvider);
+    final themeNotifier = ref.read(themeProvider.notifier);
     double deviceWidth = MediaQuery.of(context).size.width;
 
     return Layout(
@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             IconButton(
-              onPressed: toggleTheme,
+              onPressed: themeNotifier.toggleTheme,
               icon: Icon(themeMode == ThemeMode.light
                   ? Icons.dark_mode
                   : Icons.light_mode),

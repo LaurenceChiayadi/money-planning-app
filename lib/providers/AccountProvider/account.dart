@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-class Account with ChangeNotifier {
+class Account {
   late final String id;
   late final String name;
   late final double currentAmount;

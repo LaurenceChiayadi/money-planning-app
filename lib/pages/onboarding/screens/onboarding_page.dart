@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import 'package:money_planner/pages/Onboarding/onboarding_page.dart';
+import 'package:money_planner/pages/onboarding/widget/onboarding_layout.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -10,17 +9,17 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> onboardingData = [
       {
-        'lottieAnimation': 'assets/Onboarding/Animation1.json',
+        'lottieAnimation': 'lib/assets/onboarding/Animation1.json',
         'title': AppLocalizations.of(context)!.onboarding1Title,
         'subtitle': AppLocalizations.of(context)!.onboarding1Description,
       },
       {
-        'lottieAnimation': 'assets/Onboarding/Animation2.json',
+        'lottieAnimation': 'lib/assets/onboarding/Animation2.json',
         'title': AppLocalizations.of(context)!.onboarding2Title,
         'subtitle': AppLocalizations.of(context)!.onboarding2Description,
       },
       {
-        'lottieAnimation': 'assets/Onboarding/Animation3.json',
+        'lottieAnimation': 'lib/assets/onboarding/Animation3.json',
         'title': AppLocalizations.of(context)!.onboarding3Title,
         'subtitle': AppLocalizations.of(context)!.onboarding3Description,
       },
@@ -31,7 +30,8 @@ class OnboardingPage extends StatelessWidget {
       itemCount: onboardingData.length,
       itemBuilder: (context, index) {
         final page = onboardingData[index];
-        return OnboardingScreen(
+        return OnboardingLayout(
+          lottieAnimation: page['lottieAnimation'],
           title: page['title'],
           subtitle: page['subtitle'],
           isLastPage: index == onboardingData.length - 1,

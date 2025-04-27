@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:money_planner/components/global/Layout.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -71,7 +70,7 @@ class OnboardingScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pushReplacementNamed(context, '/');
             },
-            child: const Text("Get Started"),
+            child: Text(AppLocalizations.of(context)!.onboardingGetStarted),
           )
       ],
     );

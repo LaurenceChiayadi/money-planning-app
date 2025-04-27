@@ -33,7 +33,7 @@ class CustomDarkModeTheme {
   static ThemeData get theme {
     return ThemeData(
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: Colors.black,
+      scaffoldBackgroundColor: Colors.grey.shade900,
       primaryColor: Colors.white,
       appBarTheme: const AppBarTheme(
         color: Colors.black,
@@ -48,7 +48,7 @@ class CustomDarkModeTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
-          foregroundColor: Colors.black,
+          foregroundColor: Colors.grey.shade900,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),

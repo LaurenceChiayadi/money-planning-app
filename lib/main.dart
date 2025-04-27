@@ -5,10 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:money_planner/providers/ThemeProvider/theme_provider.dart';
 import 'package:money_planner/providers/AccountProvider/accounts.dart';
 
-import 'package:money_planner/l10n/l10n.dart';
-import 'package:money_planner/assets/theme/theme.dart';
-import 'package:money_planner/screens/home_page.dart';
-import 'package:money_planner/screens/onboarding_page.dart';
+import 'package:money_planner/core/theme/theme.dart';
+import 'package:money_planner/pages/home/screens/home_page.dart';
+import 'package:money_planner/pages/onboarding/screens/onboarding_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +41,7 @@ class _MyAppState extends State<MyApp> {
             initialRoute: '/onboard',
             routes: {
               '/': (context) => const HomePage(),
-              '/onboard': (context) => OnboardingPage(),
+              '/onboard': (context) => const OnboardingPage(),
             },
           );
         },

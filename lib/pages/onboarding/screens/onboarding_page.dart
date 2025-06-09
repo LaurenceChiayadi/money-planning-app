@@ -26,17 +26,20 @@ class OnboardingPage extends StatelessWidget {
     ];
 
     return Scaffold(
-        body: PageView.builder(
-      itemCount: onboardingData.length,
-      itemBuilder: (context, index) {
-        final page = onboardingData[index];
-        return OnboardingLayout(
-          lottieAnimation: page['lottieAnimation'],
-          title: page['title'],
-          subtitle: page['subtitle'],
-          isLastPage: index == onboardingData.length - 1,
-        );
-      },
+        body: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: PageView.builder(
+        itemCount: onboardingData.length,
+        itemBuilder: (context, index) {
+          final page = onboardingData[index];
+          return OnboardingLayout(
+            lottieAnimation: page['lottieAnimation'],
+            title: page['title'],
+            subtitle: page['subtitle'],
+            isLastPage: index == onboardingData.length - 1,
+          );
+        },
+      ),
     ));
   }
 }

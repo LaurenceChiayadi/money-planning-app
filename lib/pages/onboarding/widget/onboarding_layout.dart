@@ -29,6 +29,11 @@ class _OnboardingLayoutState extends State<OnboardingLayout>
     super.initState();
 
     _controller = AnimationController(vsync: this);
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _controller.stop();
+      }
+    });
   }
 
   @override
@@ -42,8 +47,11 @@ class _OnboardingLayoutState extends State<OnboardingLayout>
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Lottie.asset(widget.lottieAnimation),
+        Lottie.asset(
+          widget.lottieAnimation,
+        ),
         Text(widget.title,
+            textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,

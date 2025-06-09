@@ -5,5 +5,8 @@
     "onboarding2Description": "Set monthly budgets and get alerts before you overspend.",
     "onboarding3Title": "Ready to Take Control?",
     "onboarding3Description": "It only takes a minute to set up your first budget.",
-    "onboardingGetStarted": "Get Started"
+    "onboardingGetStarted": "Get Started",
+
+    "homepageBalanceWidgetTitle": "Main Account Balance",
+    "homepageBalanceWidgetSubtitle": "Today's Transaction"
 }

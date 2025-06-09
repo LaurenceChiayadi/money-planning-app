@@ -4,6 +4,7 @@ class CustomTheme {
   static ThemeData get theme {
     return ThemeData(
       brightness: Brightness.light,
+      fontFamily: 'Poppins',
       scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.black,
       appBarTheme: const AppBarTheme(
@@ -33,22 +34,35 @@ class CustomDarkModeTheme {
   static ThemeData get theme {
     return ThemeData(
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: Colors.grey.shade900,
+      fontFamily: 'Poppins',
+      scaffoldBackgroundColor: Colors.black,
       primaryColor: Colors.white,
+      // cardColor: const Color(0xFF387123),
       appBarTheme: const AppBarTheme(
         color: Colors.black,
         iconTheme: IconThemeData(color: Colors.white),
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
       ),
       textTheme: const TextTheme(
-        bodyLarge: TextStyle(color: Colors.white, fontSize: 18),
-        bodyMedium: TextStyle(color: Colors.white, fontSize: 16),
-        bodySmall: TextStyle(color: Colors.white70, fontSize: 14),
+        headlineLarge: TextStyle(
+            color: Colors.white, fontSize: 28, fontWeight: FontWeight.w600),
+        headlineMedium: TextStyle(
+            color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
+        headlineSmall: TextStyle(color: Colors.white, fontSize: 14),
+        bodyLarge: TextStyle(
+            color: Color(0xFFbbbbbb),
+            fontSize: 18,
+            fontWeight: FontWeight.w600),
+        bodyMedium: TextStyle(
+            color: Color(0xFFbbbbbb),
+            fontSize: 16,
+            fontWeight: FontWeight.w600),
+        bodySmall: TextStyle(color: Color(0xFFbbbbbb), fontSize: 14),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
-          foregroundColor: Colors.grey.shade900,
+          foregroundColor: Colors.black,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),

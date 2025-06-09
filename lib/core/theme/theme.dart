@@ -44,21 +44,21 @@ class CustomDarkModeTheme {
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
       ),
       textTheme: const TextTheme(
-        headlineLarge: TextStyle(
-            color: Colors.white, fontSize: 28, fontWeight: FontWeight.w600),
-        headlineMedium: TextStyle(
-            color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
-        headlineSmall: TextStyle(color: Colors.white, fontSize: 14),
-        bodyLarge: TextStyle(
-            color: Color(0xFFbbbbbb),
-            fontSize: 18,
-            fontWeight: FontWeight.w600),
-        bodyMedium: TextStyle(
-            color: Color(0xFFbbbbbb),
-            fontSize: 16,
-            fontWeight: FontWeight.w600),
-        bodySmall: TextStyle(color: Color(0xFFbbbbbb), fontSize: 14),
-      ),
+          headlineLarge: TextStyle(
+              color: Colors.white, fontSize: 28, fontWeight: FontWeight.w600),
+          headlineMedium: TextStyle(
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
+          headlineSmall: TextStyle(color: Colors.white, fontSize: 14),
+          bodyLarge: TextStyle(
+              color: Color(0xFFbbbbbb),
+              fontSize: 18,
+              fontWeight: FontWeight.w600),
+          bodyMedium: TextStyle(
+              color: Color(0xFFbbbbbb),
+              fontSize: 16,
+              fontWeight: FontWeight.w600),
+          bodySmall: TextStyle(color: Color(0xFFbbbbbb), fontSize: 14),
+          labelSmall: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,

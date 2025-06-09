@@ -26,7 +26,7 @@ class MyApp extends ConsumerWidget {
       themeMode: themeMode,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      initialRoute: '/onboard',
+      initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
         '/onboard': (context) => const OnboardingPage(),

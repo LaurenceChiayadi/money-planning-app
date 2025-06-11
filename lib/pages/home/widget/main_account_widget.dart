@@ -26,6 +26,7 @@ class MainAccountWidget extends ConsumerWidget {
     return SizedBox(
       width: double.infinity,
       child: Card(
+        color: Theme.of(context).cardColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
           child: Column(
@@ -43,6 +44,7 @@ class MainAccountWidget extends ConsumerWidget {
                 ],
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +68,39 @@ class MainAccountWidget extends ConsumerWidget {
                             )
                           ],
                         )
-                      ])
+                      ]),
+                  Row(
+                    spacing: 10,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: 45,
+                        height: 45,
+                        child: FloatingActionButton(
+                          onPressed: () {},
+                          shape: const CircleBorder(),
+                          backgroundColor:
+                              Theme.of(context).scaffoldBackgroundColor,
+                          child: const Icon(
+                            Icons.add,
+                            color: percentageColor,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 45,
+                        height: 45,
+                        child: FloatingActionButton(
+                          onPressed: () {},
+                          mini: true,
+                          child: const Icon(
+                            Icons.remove,
+                            color: Color(0xFFE53935),
+                          ),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               )
             ],

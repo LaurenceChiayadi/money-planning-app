@@ -7,24 +7,34 @@ class CustomTheme {
       fontFamily: 'Poppins',
       scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.black,
+      cardColor: const Color(0xFFF9F9F9),
       appBarTheme: const AppBarTheme(
         color: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
         titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
       ),
       textTheme: const TextTheme(
-        bodyLarge: TextStyle(color: Colors.black, fontSize: 18),
-        bodyMedium: TextStyle(color: Colors.black, fontSize: 16),
-        bodySmall: TextStyle(color: Colors.black87, fontSize: 14),
-      ),
+          headlineLarge: TextStyle(
+              color: Colors.black, fontSize: 28, fontWeight: FontWeight.w600),
+          headlineMedium: TextStyle(
+              color: Colors.black, fontSize: 16, fontWeight: FontWeight.w600),
+          headlineSmall: TextStyle(color: Colors.black, fontSize: 14),
+          bodyLarge: TextStyle(
+              color: Colors.black87, fontSize: 18, fontWeight: FontWeight.w600),
+          bodyMedium: TextStyle(
+              color: Colors.black87, fontSize: 16, fontWeight: FontWeight.w600),
+          bodySmall: TextStyle(color: Colors.black87, fontSize: 14),
+          labelSmall: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,
-          foregroundColor: Colors.white,
+          foregroundColor: Colors.black,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
       ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.white, shape: CircleBorder()),
       iconTheme: const IconThemeData(color: Colors.black),
     );
   }
@@ -37,7 +47,7 @@ class CustomDarkModeTheme {
       fontFamily: 'Poppins',
       scaffoldBackgroundColor: Colors.black,
       primaryColor: Colors.white,
-      // cardColor: const Color(0xFF387123),
+      cardColor: const Color(0xFF111111),
       appBarTheme: const AppBarTheme(
         color: Colors.black,
         iconTheme: IconThemeData(color: Colors.white),
@@ -67,6 +77,8 @@ class CustomDarkModeTheme {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
       ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.black, shape: CircleBorder()),
       iconTheme: const IconThemeData(color: Colors.white),
     );
   }
